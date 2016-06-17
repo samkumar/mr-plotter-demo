@@ -1,0 +1,3 @@
+[submodule "mr-plotter-qml"]
+	path = mr-plotter-qml
+	url = https://github.com/SoftwareDefinedBuildings/mr-plotter-qml
