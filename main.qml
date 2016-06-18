@@ -6,9 +6,9 @@ Window {
     visible: true
 
     Component.onCompleted: {
-        var s1 = mrp.newStream("ff51541a-d71c-47bc-bd63-fbbe68f94acd");
-        var s2 = mrp.newStream("ff51541a-d71c-47bc-bd63-fbbe68f94acd");
-        var s3 = mrp.newStream("ff51541a-d71c-47bc-bd63-fbbe68f94acd");
+        var s1 = mrp.newStream("e5f220f0-56fa-50ba-a7d8-ff6ed20c3ed6");
+        var s2 = mrp.newStream("c9287d59-e7a4-3917-aa89-dbda37b1c0a3");
+        var s3 = mrp.newStream("aa69412d-c0d0-376e-9255-925211dcedcc");
 
         var a1 = mrp.newYAxis(-2, 2);
         var a2 = mrp.newYAxis(-10, 2);
@@ -22,14 +22,17 @@ Window {
         //a2.addStream(s2);
         //a3.addStream(s3);
 
-        a1.name = "Axis 1";
-        a2.name = "Axis 2";
-        a3.name = "Axis 3";
+        //a1.dynamicAutoscale = true;
+        //a3.dynamicAutoscale = true;
+
+        a1.name = "True Power";
+        a2.name = "Temperature";
+        a3.name = "Humidity";
 
         a2.dynamicAutoscale = true;
 
-        var dds = mrp.newStream("ff51541a-d71c-47bc-bd63-fbbe68f94acd");
-        dds.setColor(0, 0, 1.0);
+        var dds = mrp.newStream("e5f220f0-56fa-50ba-a7d8-ff6ed20c3ed6");
+        dds.setColor(1.0, 0, 0);
         var dda = mrp.newYAxis(0, 10);
         dda.dynamicAutoscale = true;
         dda.setMinTicks(2);
@@ -62,15 +65,17 @@ Window {
 
     YAxisArea {
         id: ddyaa
-        anchors.top: ddpa.top
+        y: 0
         anchors.right: ddpa.left
         width: yaa.width
-        height: ddpa.height
+        height: parent.height
+        rangeStart: ddpa.y + ddpa.height
+        rangeEnd: ddpa.y
     }
 
     PlotArea {
         id: pa
-        y: ddpa.height + 8
+        y: ddpa.height + 15
         anchors.left: yaa.right
         width: parent.width - yaa.width
         height: Math.max(parent.height - taa.height - ddpa.height, 60)
@@ -79,18 +84,22 @@ Window {
 
     YAxisArea {
         id: yaa
-        anchors.top: pa.top
+        y: 0
         anchors.left: parent.left
         width: Math.min(parent.width / 4, 300)
-        height: pa.height
+        height: parent.height
+        rangeStart: pa.y + pa.height
+        rangeEnd: pa.y
     }
 
     TimeAxisArea {
         id: taa
         anchors.top: pa.bottom
-        x: pa.x
-        width: pa.width
+        x: 0
+        width: parent.width
         height: 70
+        rangeStart: pa.x
+        rangeEnd: pa.x + pa.width
     }
 
     MrPlotter {
