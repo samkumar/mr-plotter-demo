@@ -7,6 +7,8 @@ int main(int argc, char *argv[])
 {
     QGuiApplication app(argc, argv);
 
+    initLibMrPlotter();
+
     QQmlApplicationEngine engine;
     engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
 
