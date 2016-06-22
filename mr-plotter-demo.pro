@@ -8,3 +8,4 @@ SOURCES += main.cpp
 RESOURCES += qml.qrc
 
 include(mr-plotter-qml/mrplotter.pri)
+include(qtlibbw/bosswave.pri)

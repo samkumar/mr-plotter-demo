@@ -6,9 +6,10 @@ Window {
     visible: true
 
     Component.onCompleted: {
-        var s1 = mrp.newStream("e5f220f0-56fa-50ba-a7d8-ff6ed20c3ed6");
-        var s2 = mrp.newStream("c9287d59-e7a4-3917-aa89-dbda37b1c0a3");
-        var s3 = mrp.newStream("aa69412d-c0d0-376e-9255-925211dcedcc");
+        var archiver = mrp.addArchiver("gabe.ns/s.giles/0/i.archiver");
+        var s1 = mrp.newStream("e5f220f0-56fa-50ba-a7d8-ff6ed20c3ed6", archiver);
+        var s2 = mrp.newStream("c9287d59-e7a4-3917-aa89-dbda37b1c0a3", archiver);
+        var s3 = mrp.newStream("aa69412d-c0d0-376e-9255-925211dcedcc", archiver);
 
         var a1 = mrp.newYAxis(-2, 2);
         var a2 = mrp.newYAxis(-10, 2);
@@ -19,10 +20,10 @@ Window {
         s3.setColor(0, 0.5, 0);
 
         a1.addStream(s1);
-        a2.addStream(s2);
-        a3.addStream(s3);
+        //a2.addStream(s2);
+        //a3.addStream(s3);
 
-        //a1.dynamicAutoscale = true;
+        a1.dynamicAutoscale = true;
         //a3.dynamicAutoscale = true;
 
         a1.name = "True Power";
@@ -31,18 +32,18 @@ Window {
 
         a2.dynamicAutoscale = true;
 
-        var dds = mrp.newStream("e5f220f0-56fa-50ba-a7d8-ff6ed20c3ed6");
+        var dds = mrp.newStream("e14bc2c9-e277-5239-9e60-8fa839394c01", archiver);
         dds.setColor(1.0, 0, 0);
         var dda = mrp.newYAxis(0, 10);
         dda.dynamicAutoscale = true;
         dda.setMinTicks(2);
-        dda.addStream(dds);
+        //dda.addStream(dds);
 
-        var streamlist = [s1, s2, s3];
+        var streamlist = [s1]//, s2, s3];
         var axislist = [a1, a2, a3];
 
         pa.setStreamList(streamlist);
-        ddpa.setStreamList([dds]);
+        //ddpa.setStreamList([dds]);
         yaa.setAxisList(axislist);
         ddyaa.setAxisList([dda]);
 
