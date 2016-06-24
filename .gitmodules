@@ -4,3 +4,6 @@
 [submodule "qtlibbw"]
 	path = qtlibbw
 	url = https://github.com/immesys/qtlibbw
+[submodule "mr-plotter-layouts"]
+	path = mr-plotter-layouts
+	url = https://github.com/SoftwareDefinedBuildings/mr-plotter-layouts
