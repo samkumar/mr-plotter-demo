@@ -18,13 +18,6 @@ int main(int argc, char *argv[])
     initLibMrPlotter();
 
     QQmlApplicationEngine engine;
-    engine.addImportPath("../mr-plotter-demo");
-    qDebug("Import path:");
-    QStringList ips = engine.importPathList();
-    for (auto i = ips.begin(); i != ips.end(); i++)
-    {
-        qDebug("%s", qPrintable(*i));
-    }
 
     bw->setEntityFromEnviron([&](QString s)
     {

@@ -21,6 +21,8 @@ Window {
         //s2.setColor(1.0, 0, 0);
         s3.setColor(0, 0.5, 0);
 
+        s3.setTimeOffset(0, 200);
+
         a1.addStream(s1);
         //a2.addStream(s2);
         a3.addStream(s3);
@@ -41,6 +43,10 @@ Window {
         dda.setMinTicks(2);
         dda.addStream(dds);
 
+
+        mrp.setTimeTickPromotion(false);
+        ddpa.setScrollZoomable(false);
+
         var streamlist = [s1, s3];
         var axislist = [a1, a2, a3];
 
@@ -48,6 +54,8 @@ Window {
         ddpa.setStreamList([dds]);
         yaa.setAxisList(axislist);
         ddyaa.setAxisList([dda]);
+
+        mrp.setScrollableRange(1415643674978, 1415643674980)
 
         mrp.setTimeDomain(1415643674979, 1415643674979, 469055, 469318);
         mrp.setTimeZone("America/Los_Angeles");
