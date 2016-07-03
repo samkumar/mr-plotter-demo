@@ -50,24 +50,24 @@ Window {
         a2.name = "Temperature";
         a3.name = "Humidity";
 
-        //var dds = mrp.newStream("e14bc2c9-e277-5239-9e60-8fa839394c01", archiver);
-        //dds.setColor(1.0, 0, 0);
+        var dds = mrp.newStream("e14bc2c9-e277-5239-9e60-8fa839394c01", archiver);
+        dds.setColor(1.0, 0, 0);
         var dda = mrp.newYAxis(0, 10);
         dda.dynamicAutoscale = true;
         dda.minTicks = 2;
-        //dda.addStream(dds);
+        dda.addStream(dds);
 
 
-        mrp.timeTickPromotion = false;
+        mrp.timeTickPromotion = true;
         //ddpa.setScrollZoomable(false);
 
         var streamlist = [s1];
         var axislist = [a1, a2, a3];
 
         pa.streamList = streamlist;
-        //ddpa.setStreamList([dds]);
+        ddpa.streamList = [dds];
         yaa.axisList = axislist;
-        ddyaa.setAxisList([dda]);
+        ddyaa.axisList = [dda];
 
         mrp.scrollableDomain = [1415643674978, 1415643674980];
 
