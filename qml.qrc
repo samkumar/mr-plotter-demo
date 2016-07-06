@@ -2,7 +2,7 @@
     <qresource prefix="/">
         <file>main.qml</file>
         <file>mr-plotter-layouts/BasicPlot.qml</file>
-        <file>mr-plotter-layouts/SummaryLayout.qml</file>
+        <file>mr-plotter-layouts/StandardPlot.qml</file>
         <file>mr-plotter-layouts/Sparkline.qml</file>
         <file>mr-plotter-layouts/SmoothYAxis.qml</file>
     </qresource>
